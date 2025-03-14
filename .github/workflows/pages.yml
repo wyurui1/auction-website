@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
 
 concurrency: 
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -22,8 +21,7 @@ jobs:
           node-version: '21'
           cache: 'npm'
       - name: Install dependencies
-        run: |
-          npm install
+        run: npm install
       - name: Build
         run: npm run build
       - name: Setup Pages
